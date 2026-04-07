@@ -4,8 +4,6 @@ import { useParams, useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { getAllAgents, getAgent } from "@/lib/agentConfig";
 import Navbar from "@/components/Navbar";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 
 interface LogEntry {
   id: string;
@@ -282,9 +280,7 @@ export default function AgentPage() {
                 )}
                 {output && (
                   <div className="agent-output">
-                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                      {output}
-                    </ReactMarkdown>
+                    <pre className="whitespace-pre-wrap text-sm text-forge-text font-mono leading-relaxed">{output}</pre>
                   </div>
                 )}
               </div>
